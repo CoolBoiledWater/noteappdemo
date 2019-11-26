@@ -1,0 +1,26 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    username: root
+    password: 123
+    url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  freemarker:
+    suffix: .ftl
+    template-loader-path: classpath:/templates
+    settings:
+      datetime_format: yyyy-MM-dd HH:mm:ss
+      number_format: 0.##########
+      classic_compatible: true
+    request-context-attribute: request
+  mvc:
+    static-path-pattern: /static/**
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.example.NoteApp.entity
+logging:
+  level:
+    com:
+      example:
+        mapper: debug
