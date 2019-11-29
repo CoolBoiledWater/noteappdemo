@@ -28,7 +28,7 @@ public class NoteServiceImpl implements NoteService {
 
     public List<NoteEntity> findAll(){
         if (redisUtil.hasKey(cacheName)){
-            return  redisUtil.get("allnote");
+            return  redisUtil.get(cacheName);
         }
         List<NoteEntity> list = mapper.findAll();
         redisUtil.set(cacheName,list);
