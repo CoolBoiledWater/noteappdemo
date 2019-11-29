@@ -15,17 +15,17 @@ import javax.servlet.http.HttpServletRequest;
  * @date 2019-11-26 10:59
  */
 @RestController
-@RequestMapping("/user")
 public class LoginController {
 
-    @RequestMapping("/login.html")
+
+    @RequestMapping("/")
     public ModelAndView login(){
         ModelAndView mv = new ModelAndView("login");
 
         return mv;
     }
 
-    @PostMapping("/dologin")
+    @PostMapping("/user/dologin")
     public JsonResult doLogin(@Param("user")User user, HttpServletRequest request){
         if (user.getName().equals("zipliu") && user.getPassword().equals("123")){
             request.getSession().setAttribute("user",user);
