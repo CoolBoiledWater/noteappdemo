@@ -2,7 +2,7 @@ package com.example.NoteApp.controller;
 
 import com.example.NoteApp.entity.JsonResult;
 import com.example.NoteApp.entity.NoteEntity;
-import com.example.NoteApp.service.NoteService;
+import com.example.NoteApp.service.impl.NoteServiceImpl;
 import com.example.NoteApp.util.DateUtil;
 import com.example.NoteApp.util.StrUtil;
 import org.apache.ibatis.annotations.Param;
@@ -21,7 +21,7 @@ import java.util.List;
 @RequestMapping("/demo")
 public class NoteController {
     @Autowired
-    private NoteService service;
+    private NoteServiceImpl service;
 
     /**
      * mvc 风格
