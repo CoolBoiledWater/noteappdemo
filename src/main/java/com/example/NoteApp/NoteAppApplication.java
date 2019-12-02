@@ -1,15 +1,18 @@
 package com.example.NoteApp;
 
+import com.example.NoteApp.activemq.producter.ActivemqClient;
 import com.example.NoteApp.configer.freemarkerconf;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.jms.annotation.EnableJms;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
 import java.util.Map;
 
 @SpringBootApplication
+@EnableJms
 public class NoteAppApplication {
 
     public static void main(String[] args) {

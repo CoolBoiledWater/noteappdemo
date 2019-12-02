@@ -2,12 +2,14 @@ package com.example.NoteApp.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * @author LiuZepeng
  * @date 2019-11-25 10:09
  */
 @Data
-public class NoteEntity {
+public class NoteEntity implements Serializable {
     private long id;
     private String title="";
     private String content="";
