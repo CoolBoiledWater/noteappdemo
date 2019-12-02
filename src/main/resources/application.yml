@@ -4,7 +4,7 @@ spring:
   datasource:
     username: root
     password: 123
-    url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    url: jdbc:mysql://112.74.181.4:3306/demo?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
   freemarker:
     suffix: .ftl
@@ -26,7 +26,8 @@ spring:
         max-idle: 500
         min-idle: 0
     lettuce:
-      shutdown-timeout: 0
+      shutdown-timeout: 500
+
   activemq:
     broker-url: tcp://localhost:61616
     user: admin
@@ -36,6 +37,9 @@ spring:
       trust-all: true
     pool:
       enabled: false
+  devtools:
+    livereload:
+      port: 35729
 mybatis:
   mapper-locations: classpath:mapping/*Mapper.xml
   type-aliases-package: com.example.NoteApp.entity
