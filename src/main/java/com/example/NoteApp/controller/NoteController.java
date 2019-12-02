@@ -1,5 +1,8 @@
 package com.example.NoteApp.controller;
 
+import com.example.NoteApp.activemq.producter.ActivemqClient;
+import com.example.NoteApp.dto.ActiveModel;
+import com.example.NoteApp.dto.Enum.ActiveHearder;
 import com.example.NoteApp.entity.JsonResult;
 import com.example.NoteApp.entity.NoteEntity;
 import com.example.NoteApp.service.impl.NoteServiceImpl;
@@ -22,6 +25,8 @@ import java.util.List;
 public class NoteController {
     @Autowired
     private NoteServiceImpl service;
+    @Autowired
+    private ActivemqClient activemqClient;
 
     /**
      * mvc 风格
@@ -35,6 +40,7 @@ public class NoteController {
     public ModelAndView index(){
         ModelAndView mv= new ModelAndView("index");
         List<NoteEntity> list = service.findAll();
+        activemqClient.send(new ActiveModel(ActiveHearder.Coment,list));
         mv.addObject("notelist",list);
 
         return mv;
