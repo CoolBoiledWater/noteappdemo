@@ -29,11 +29,15 @@
                 alert("用户民或密码不能为空！");
                 return false;
             }
+            debugger
             $.post("${request.contextPath}/user/dologin",{
-                name:name,
-                password:password
-            },function (t) {
-                if (t.code==1){
+                userName:name,
+                userPassword:password
+            },function (res) {
+
+                var code= res.code;
+                debugger
+                if (res.code==1){
                     location.href="${request.contextPath}/demo/index.html";
                 } else{
                     alert("用户名或密码错误！");

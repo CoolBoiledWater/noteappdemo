@@ -1,6 +1,9 @@
 package com.example.NoteApp.entity;
 
+import com.example.NoteApp.util.DateUtil;
 import lombok.Data;
+
+import java.sql.Timestamp;
 
 /**
  * @author LiuZepeng
@@ -8,7 +11,11 @@ import lombok.Data;
  */
 @Data
 public class User {
-    private long id;
-    private String name;
-    private String password;
+    private long userId;
+    private String userName;
+    private String userPassword;
+    private Integer status;
+    private Integer userStatus;
+    private Timestamp createTime ;
+    private Timestamp updateTime;
 }
